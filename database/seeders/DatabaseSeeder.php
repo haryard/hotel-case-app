@@ -37,9 +37,9 @@ class DatabaseSeeder extends Seeder
         $roleAdmin = Role::create(['name' => 'admin']);
         $roleUser = Role::create(['name' => 'user']);
 
-        $permissionMaster = Permission::create(['name' => 'access master']);
+        $permissionMaster = Permission::create(['name' => 'access room']);
         $permissionReport = Permission::create(['name' => 'access report']);
-        $permissionTransaction = Permission::create(['name' => 'access transaction']);
+        $permissionTransaction = Permission::create(['name' => 'access reservation']);
 
         $roleAdmin->givePermissionTo($permissionMaster);
         $roleAdmin->givePermissionTo($permissionReport);

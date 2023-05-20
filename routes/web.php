@@ -22,6 +22,15 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware(['role:admin', 'auth', 'verified'])->group(function() {
+    Route::get('/room', function() { return view('room'); })->name('room');
+    Route::get('/report', function() { return view('report'); })->name('report');
+});
+
+Route::middleware(['role:user', 'auth', 'verified'])->group(function() {
+    Route::get('/reservation', function() { return view('reservation'); })->name('reservation');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

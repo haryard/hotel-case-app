@@ -11,11 +11,36 @@
                 </div>
 
                 <!-- Navigation Links -->
+                <!-- Dashboard -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @can('access room')
+                <!-- Menu Room -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('room')" :active="request()->routeIs('room')">
+                        {{ __('Manage Room') }}
+                    </x-nav-link>
+                </div>
+                @endcan
+                @can('access report')
+                <!-- Menu Report -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('report')" :active="request()->routeIs('report')">
+                        {{ __('Transaction Report') }}
+                    </x-nav-link>
+                </div>
+                @endcan
+                @can('access reservation')
+                <!-- Menu Reservation -->
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('reservation')" :active="request()->routeIs('reservation')">
+                        {{ __('Reservation') }}
+                    </x-nav-link>
+                </div>
+                @endcan
             </div>
 
             <!-- Settings Dropdown -->
@@ -70,6 +95,21 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @can('access room')
+            <x-responsive-nav-link :href="route('room')" :active="request()->routeIs('room')">
+                {{ __('Manage Rooms') }}
+            </x-responsive-nav-link>
+            @endcan
+            @can('access report')
+            <x-responsive-nav-link :href="route('report')" :active="request()->routeIs('report')">
+                {{ __('Transaction Report') }}
+            </x-responsive-nav-link>
+            @endcan
+            @can('access reservation')
+            <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('reservation')">
+                {{ __('Reservation') }}
+            </x-responsive-nav-link>
+            @endcan
         </div>
 
         <!-- Responsive Settings Options -->
