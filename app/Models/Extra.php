@@ -9,6 +9,12 @@ class Extra extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'DetailTransID',
+        'ProductID',
+        'Quantity',
+    ];
+
     public function detailTransaction()
     {
         return $this->belongsTo(DetailTransaction::class, 'DetailTransID');

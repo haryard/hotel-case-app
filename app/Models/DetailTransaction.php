@@ -9,6 +9,11 @@ class DetailTransaction extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'TransID',
+        'RoomID',
+    ];
+
     public function transaction()
     {
         return $this->belongsTo(Transaction::class, 'TransID');
