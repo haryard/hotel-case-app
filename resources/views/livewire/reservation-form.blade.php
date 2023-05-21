@@ -1,5 +1,5 @@
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">{{{ __('Create Room Type') }}}</h2>
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">{{{ __('Create Reservation') }}}</h2>
     <div>
         <x-input-label class="text-xs">
             Reservation Code : {{ $reservationCode }}
@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="mt-2">
-                        <x-input-label for="days" :value="__('Days Stayd')" />
+                        <x-input-label for="days" :value="__('Days Staying')" />
                         <x-text-input id="days" class="block mt-1 w-full" type="number" min="1" name="days"  wire:model="days"/>
                     </div>
 
