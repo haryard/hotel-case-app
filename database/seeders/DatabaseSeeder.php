@@ -65,6 +65,8 @@ class DatabaseSeeder extends Seeder
             'Price' => '25000',
         ]);
 
-
+        $this->call([
+            RoomSeeder::class,
+        ]);
     }
 }

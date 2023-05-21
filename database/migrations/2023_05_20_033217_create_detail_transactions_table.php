@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->unsignedBigInteger('TransID');
-            $table->foreign('TransID')->references('id')->on('transactions');
+            $table->foreign('TransID')->references('id')->on('transactions')->onDelete('cascade');
             $table->unsignedBigInteger('RoomID');
             $table->foreign('RoomID')->references('id')->on('rooms');
+            $table->integer('Days');
             $table->decimal('SubTotalRoom');
             $table->decimal('ExtraCharges');
         });

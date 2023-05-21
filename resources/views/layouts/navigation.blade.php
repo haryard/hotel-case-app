@@ -20,7 +20,7 @@
                 @can('access room')
                 <!-- Menu Room -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('room')" :active="request()->routeIs('room')">
+                    <x-nav-link :href="route('room.index')" :active="request()->routeIs('room.index')">
                         {{ __('Manage Room') }}
                     </x-nav-link>
                 </div>
@@ -28,7 +28,7 @@
                 @can('access report')
                 <!-- Menu Report -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('report')" :active="request()->routeIs('report')">
+                    <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.index')">
                         {{ __('Transaction Report') }}
                     </x-nav-link>
                 </div>
@@ -36,7 +36,7 @@
                 @can('access reservation')
                 <!-- Menu Reservation -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('reservation')" :active="request()->routeIs('reservation')">
+                    <x-nav-link :href="route('reservation.index')" :active="request()->routeIs('reservation.index')">
                         {{ __('Reservation') }}
                     </x-nav-link>
                 </div>
@@ -96,17 +96,17 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             @can('access room')
-            <x-responsive-nav-link :href="route('room')" :active="request()->routeIs('room')">
+            <x-responsive-nav-link :href="route('room.index')" :active="request()->routeIs('room.index')">
                 {{ __('Manage Rooms') }}
             </x-responsive-nav-link>
             @endcan
             @can('access report')
-            <x-responsive-nav-link :href="route('report')" :active="request()->routeIs('report')">
+            <x-responsive-nav-link :href="route('report.index')" :active="request()->routeIs('report.index')">
                 {{ __('Transaction Report') }}
             </x-responsive-nav-link>
             @endcan
             @can('access reservation')
-            <x-responsive-nav-link :href="route('reservation')" :active="request()->routeIs('reservation')">
+            <x-responsive-nav-link :href="route('reservation.index')" :active="request()->routeIs('reservation.index')">
                 {{ __('Reservation') }}
             </x-responsive-nav-link>
             @endcan

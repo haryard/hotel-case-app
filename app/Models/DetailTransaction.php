@@ -12,6 +12,7 @@ class DetailTransaction extends Model
     protected $fillable = [
         'TransID',
         'RoomID',
+        'Days',
     ];
 
     public function transaction()

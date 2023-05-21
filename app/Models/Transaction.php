@@ -10,13 +10,22 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
+        'UserID',
         'TransCode',
         'TransDate',
-        'user_id',
+        'CustName',
+        'TotalRoomPrice',
+        'TotalExtraCharge',
+        'FinalTotal',
     ];
 
     public function detailTransactions()
     {
         return $this->hasMany(DetailTransaction::class, 'TransID');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'UserID');
     }
 }
