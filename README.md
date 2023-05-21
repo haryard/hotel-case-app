@@ -2,27 +2,27 @@
 
 Berikut langkah yang perlu dilakukan melalui terminal untuk menjalankan project laravel ini
 - Menyalin file .env.example menjadi file .env untuk dapat mengkonfigurasi setting project laravel, dapat dijalankan dengan command berikut.
-        cp .env.example .env  (Linux/Mac)
-        copy .env.example .env  (Windows Command Prompt)
+        ```cp .env.example .env  (Linux/Mac)``` atau
+        ```copy .env.example .env  (Windows Command Prompt)```
 - Menginstall Dependensi PHP (untuk laravel sendiri) dan NPM (untuk content frontend), dapat dijalankan dengan command berikut.
-        composer install
-        npm install
+        ```composer install``` dan
+        ```npm install```
 - Generate key untuk project laravel tersebut, dapat dijalankan dengan command berikut.
-        php artisan key:generate
+        ```php artisan key:generate```
 - Lakukan Migration dan Seed untuk mempopulate beberapa table yang ada
-        php artisan migrate:refresh --seed
+        ```php artisan migrate:refresh --seed```
 - Jalankan NPM development Server dan development server untuk project Laravel, dapat dijalankan dengan menjalankan command berikut.
-        npm run dev
-        php artisan serve
+        ```npm run dev``` dan
+        ```php artisan serve```
 - Aplikasi sudah dapat dijalankan di alamat ```http://localhost:8000```
 
 Untuk mengujinya dapat login menjadi salah satu dari dua user default dengan role user dan admin berikut.
-- Role user
-        Email    : user@example.com
-        Password : Password
-- Role user
-        Email    : admin@example.com
-        Password : Password
+### Role user
+- Email    : user@example.com
+- Password : Password
+### Role user
+- Email    : admin@example.com
+- Password : Password
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
