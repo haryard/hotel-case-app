@@ -3,10 +3,16 @@
 namespace App\Http\Livewire;
 
 use Carbon\Carbon;
+use App\Models\Product;
+use App\Models\RoomType;
 use App\Models\DetailTransaction;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
+use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
+use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectDropdownFilter;
 
 class TransactionDetailReportTable extends DataTableComponent
 {
@@ -89,6 +95,34 @@ class TransactionDetailReportTable extends DataTableComponent
                 ->collapseOnTablet(),
             Column::make("Total Prices", "transaction.FinalTotal")
                 ->collapseOnTablet(),
+        ];
+    }
+
+    public function filters(): array
+    {
+        return [
+            MultiSelectFilter::make("Room Type")
+                ->options(
+                    RoomType::query()
+                        ->orderBy('RoomType')
+                        ->get()
+                        ->keyBy('RoomType')
+                        ->map(fn($roomType) => $roomType->RoomType)
+                        ->toArray()
+                )
+                ->filter(function(Builder $builder, $option) {
+                    $builder->whereIn('RoomType', $option);
+                }),
+            DateFilter::make('Start Date')
+                ->filter(function(Builder $builder, $date) {
+                    $builder->where('TransDate', '>=', $date);
+                }),
+            /*
+            DateFilter::make('End Date')
+                ->filter(function(Builder $builder, $date) {
+                    $builder->where("DATE_ADD(TransDate, INTERVAL Days DAY)", '<', $date);
+                }),
+            */
         ];
     }
 
